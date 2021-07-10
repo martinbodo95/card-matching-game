@@ -5,7 +5,11 @@
             <div>Best</div>
             <div>{{best}}</div>
         </div>
-        <button>RESTART</button>
+        <button (click)="startNewGame()">RESTART</button>
+    </div>▼
+    <div class="game-field">
+        <app-card *ngFor="let card of cards; index as i" 
+        [imgUrl]="card.imgUrl" [flipped]="card.flipped" [disabled]="card.disabled"
+        (click)="cardClicked(i)"></app-card>
     </div>
-    <div *ngFor="let card of cards"></div>
 </div>

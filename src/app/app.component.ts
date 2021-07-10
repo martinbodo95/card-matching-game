@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { SelectInput } from './models/select-input.model';
+import { GameService } from './services/game.service';
 
 @Component({
     selector: 'app-root',
@@ -10,17 +12,33 @@ import { SelectInput } from './models/select-input.model';
 export class AppComponent {
     gameForm: FormGroup;
     numberOfCardsOptions: SelectInput[] = [];
+    private subscriptions: Subscription[] = [];
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private gameService: GameService
+    ) {
         this.gameForm = this.formBuilder.group({
-            numberOfCards: [6]
+            numberOfCards: [JSON.parse(sessionStorage.getItem('nrOfCards')!) || 6]
         });
         for (let i = 6; i <= 20; i += 2) {
             this.numberOfCardsOptions.push({ value: i })
         }
+        this.subscriptions.push(this.numberOfCardsField.valueChanges.subscribe(val => {
+            sessionStorage.setItem('nrOfCards', JSON.stringify(val));
+        }));
     }
-    
-    get numberOfCards(): number { return this.gameForm.get('numberOfCards')!.value; }
 
+    startNewGame() {
+        this.gameService.startNewGame();
+    }
 
+    get numberOfCards(): number { return this.numberOfCardsField.value; }
+    get numberOfCardsField(): AbstractControl { return this.gameForm.get('numberOfCards')!; }
+
+    ngOnDestroy() {
+        this.subscriptions.forEach((sub) => {
+            sub.unsubscribe();
+        })
+    }
 }

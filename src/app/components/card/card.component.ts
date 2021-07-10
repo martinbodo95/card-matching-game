@@ -5,14 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
-
-    @Input() imgUrl = '';
+export class CardComponent {
+    @Input() imgUrl = 'asd';
     @Input() flipped = false;
+    @Input() disabled = false;
 
     constructor() { }
-
-    ngOnInit(): void {
-    }
-
 }
