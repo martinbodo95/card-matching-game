@@ -1,0 +1,26 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0 auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 900px;
+    max-width: 90%;
+}
+
+select {
+    height: 45px;
+    width: 115px;
+    font-size: 20px;
+    padding: 0 40px;
+}
+
+button {
+    color: #fff;
+    background-color: #ff3000;
+    height: 45px;
+    width: 200px;
+    border: none;
+    border-radius: 2px;
+}

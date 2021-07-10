@@ -1,0 +1,12 @@
+<header>
+    <img src="assets/splendex-logo.svg" [routerLink]="['']">
+    <form [formGroup]="gameForm">
+        <div>Deck size:</div>
+        <select formControlName="numberOfCards">
+            <option *ngFor="let number of numberOfCardsOptions" [value]="number.value">{{number.value}}<option>
+        </select>
+        <button>START NEW GAME</button>
+    </form>
+</header>
+
+<router-outlet></router-outlet>

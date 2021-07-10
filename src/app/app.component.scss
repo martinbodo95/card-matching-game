@@ -1,0 +1,25 @@
+header {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 20px;
+    z-index: 1;
+    color: #898989;
+
+    img {
+        width: 180px;
+        height: 60px;
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+    }
+}
