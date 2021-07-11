@@ -2,7 +2,7 @@
     <div class="logo">
         <img src="assets/splendex-logo.svg" [routerLink]="['']">
     </div>
-    <form [formGroup]="gameForm">
+    <form [formGroup]="gameForm" *ngIf="router.url !== '/'">
         <div>Deck size:</div>
         <select formControlName="numberOfCards">
             <option *ngFor="let number of numberOfCardsOptions" [value]="number.value">{{number.value}}<option>

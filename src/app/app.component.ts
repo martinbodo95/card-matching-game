@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SelectInput } from './models/select-input.model';
 import { GameService } from './services/game.service';
@@ -16,7 +17,8 @@ export class AppComponent {
 
     constructor(
         private formBuilder: FormBuilder,
-        private gameService: GameService
+        private gameService: GameService,
+        public router: Router
     ) {
         this.gameForm = this.formBuilder.group({
             numberOfCards: [JSON.parse(sessionStorage.getItem('nrOfCards')!) || 6]
