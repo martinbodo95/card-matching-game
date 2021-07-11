@@ -30,6 +30,7 @@ export class AppComponent {
     }
 
     startNewGame() {
+        sessionStorage.setItem('nrOfCards', JSON.stringify(this.numberOfCards));
         this.gameService.startNewGame();
     }
 

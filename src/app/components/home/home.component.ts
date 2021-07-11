@@ -30,6 +30,7 @@ export class HomeComponent {
     }
 
     startNewGame() {
+        sessionStorage.setItem('nrOfCards', JSON.stringify(this.numberOfCards));
         this.gameService.startNewGame();
     }
 
@@ -41,5 +42,4 @@ export class HomeComponent {
             sub.unsubscribe();
         })
     }
-
 }

@@ -1,9 +1,22 @@
 <div class="home">
     <div class="game-name">Splendex Memory Game</div>
+    <h3>Rules</h3>
+    <ol>
+        <li>Present the user with an even number of cards, “face down”.</li>
+        <li>When the user clicks a card, “flip it over” and reveal the hidden image.</li>
+        <li>When two cards are revealed:
+            <ol type="a">
+                <li>If the cards are identical, remove them from play.</li>
+                <li>If they are not, flip them back.</li>
+            </ol>
+        </li>
+        <li>The game ends when all the cards are removed.</li>
+    </ol>
     <form [formGroup]="gameForm">
-        <div>Deck size</div>
+        <div>Deck Size</div>
         <select formControlName="numberOfCards">
-            <option *ngFor="let number of numberOfCardsOptions" [value]="number.value">{{number.value}}<option>
+            <option *ngFor="let number of numberOfCardsOptions" [value]="number.value">{{number.value}}
+            <option>
         </select>
         <button (click)="startNewGame()">START NEW GAME</button>
     </form>

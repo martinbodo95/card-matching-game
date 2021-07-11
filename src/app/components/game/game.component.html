@@ -1,12 +1,12 @@
 <div class="game">
     <div class="info">
-        <div>Current tries {{tries}}</div>
+        <div>Current tries: <span>{{tries}}</span></div>
         <div class="best">
-            <div>Best</div>
-            <div>{{best}}</div>
+            <div>Best:</div>
+            <span class="best-score">{{best}}</span>
         </div>
-        <button (click)="startNewGame()">RESTART</button>
-    </div>▼
+        <button class="transparent-button" (click)="startNewGame()">RESTART</button>
+    </div>
     <div class="game-field">
         <app-card *ngFor="let card of cards; index as i" 
         [imgUrl]="card.imgUrl" [flipped]="card.flipped" [disabled]="card.disabled"

@@ -37,7 +37,7 @@ export class GameComponent {
     constructor(
         private router: Router,
         private gameService: GameService) {
-        if (!this.activeGame) {
+        if (!this.activeGame || this.cards.length === 0) {
             this.setCardsField();
         }
         this.subscriptions.push(this.gameService.gameResetStateSource$.subscribe(() => {
@@ -102,9 +102,10 @@ export class GameComponent {
             } else {
                 this.cards[index].flipped = true;
                 this.cardClickDisabled = true;
+                const firstCardIndex = this.firstCardIndex;
                 setTimeout(() => {
                     this.cards[index].flipped = false;
-                    this.cards[this.firstCardIndex].flipped = false;
+                    this.cards[firstCardIndex].flipped = false;
                     this.firstCardIndex = -1;
                     this.cardClickDisabled = false;
                 }, 1500)

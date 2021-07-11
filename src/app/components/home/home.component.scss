@@ -1,5 +1,5 @@
 .home {
-    padding-top: 80px;
+    padding-top: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,5 +13,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        div {
+            margin: 10px 0;
+        }
+
+        select {
+            margin-bottom: 25px;
+        }
     }
 }

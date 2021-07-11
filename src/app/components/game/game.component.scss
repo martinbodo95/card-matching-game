@@ -1,19 +1,34 @@
 .game {
     padding-top: 80px;
+    color: #8e8e8e;
 
     .info {
         display: flex;
-    }
-
-    .best {
-        display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
+
+        .best {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        span {
+            color: #000;
+        }
+
+        .best-score {
+            font-size: 34px;
+        }
     }
 
     .game-field {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -10px;
+        margin: 0 -8px;
+
+        & > * {
+            margin: 8px;
+        }
     }
 }

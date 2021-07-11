@@ -1,7 +1,6 @@
 .card {
     width: 145px;
     height: 145px;
-    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +8,9 @@
 
 .card-active {
     background-color: #fff;
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
+    box-sizing: border-box;
 
     img {
         width: 60%;
