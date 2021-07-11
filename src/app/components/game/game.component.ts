@@ -108,6 +108,7 @@ export class GameComponent {
                     this.cards[firstCardIndex].flipped = false;
                     this.firstCardIndex = -1;
                     this.cardClickDisabled = false;
+                    this.saveCurrentState();
                 }, 1500)
             }
         }
